@@ -1,12 +1,15 @@
 package com.ar.backend.entities;
 
 import com.ar.backend.enums.Role;
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotNull;
 import java.util.Collection;
@@ -53,6 +56,10 @@ public class User implements UserDetails {
 
   @Enumerated(EnumType.STRING)
   private Role role;
+
+  @OneToOne(cascade = CascadeType.ALL)
+  @JoinColumn(name = "account_id")
+  private Account account;
 
   @Override
   public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -105,9 +112,6 @@ public class User implements UserDetails {
     private Role role;
   }
 
-  /**
-   * Dto para la manipulación de datos en el CRUD.
-   */
   @Getter
   @Setter
   @AllArgsConstructor
@@ -116,6 +120,16 @@ public class User implements UserDetails {
     private Long id;
     private String fullName;
     private String email;
+    private String dni;
+    private Account.AccountDto account;
+  }
+
+  @Getter
+  @Setter
+  @AllArgsConstructor
+  @NoArgsConstructor
+  public static class UserInfoDto {
+    private String fullName;
     private String dni;
   }
 
