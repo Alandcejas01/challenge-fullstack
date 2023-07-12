@@ -21,7 +21,7 @@ public class CorsConfig {
       @Override
       public void addCorsMappings(@NotNull CorsRegistry registry) {
         registry.addMapping("/api/v1/**")
-            .allowedOrigins("http://localhost:4200")
+            .allowedOrigins("https://challenge-fullstack-d4c5c.web.app")
             .allowedMethods("*");
       }
     };
