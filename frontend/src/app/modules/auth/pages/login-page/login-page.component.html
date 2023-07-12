@@ -1,0 +1,56 @@
+<section class="grid md:grid-cols-[54%_46%] h-screen">
+  <div class="hidden md:block">
+    <img src="../../../../../assets/background.jpg" class="h-full bg-cover" />
+  </div>
+  <div class="h-full bg-fuchsia-800 flex flex-col justify-evenly items-center">
+    <div class="flex flex-col items-center justify-center">
+      <h3 class="text-white text-3xl lg:text-4xl font-serif">
+        Unicomer
+      </h3>
+      <img src="../../../../../assets/logo.svg" class="w-40 h-40" />
+      <h3 class="text-white text-3xl lg:text-4xl">Inicio de sesion</h3>
+    </div>
+    <form
+      (ngSubmit)="sendLogin()"
+      [formGroup]="formLogin"
+      class="w-10/12 lg:w-8/12 items-start flex flex-col gap-8">
+      <div class="flex w-full flex-col gap-4">
+        <label for="dni" class="text-lg text-white">N° de documento</label>
+        <div
+          class="h-10 flex gap-4 items-center border-solid border-neutral-100 bg-neutral-100 text-neutral-800 rounded-xl p-2 border-2">
+          <span nz-icon nzType="mail" nzTheme="outline"></span>
+          <input
+            autocomplete="dni"
+            id="dni"
+            formControlName="dni"
+            type="text"
+            placeholder="Introduce tu DNI"
+            class="w-full outline-none" />
+        </div>
+      </div>
+      <div class="flex w-full flex-col gap-4">
+        <label for="password" class="text-lg text-white">Contraseña</label>
+        <div
+          class="h-10 flex gap-4 items-center border-solid border-neutral-100 bg-neutral-100 text-neutral-800 rounded-xl p-2 border-2">
+          <span nz-icon nzType="lock" nzTheme="outline"></span>
+          <input
+            id="password"
+            formControlName="password"
+            type="password"
+            placeholder="Contraseña"
+            class="outline-none w-full" />
+        </div>
+      </div>
+      <div *ngIf="error" class="text-yellow-500 font-bold">
+        Ocurrio un error con tu DNI o password
+      </div>
+      <div class="w-full h-12 md:h-14 lg:h-16 mx-auto">
+        <button
+          [disabled]="formLogin.invalid"
+          class="disabled:bg-zinc-600 disabled:cursor-default w-full h-full rounded-3xl text-xl bg-zinc-800 hover:bg-zinc-700 cursor-pointer text-white">
+          Iniciar sesión
+        </button>
+      </div>
+    </form>
+  </div>
+</section>
