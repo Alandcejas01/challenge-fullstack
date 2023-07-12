@@ -10,11 +10,9 @@ const routes: Routes = [
   },
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   {
-    path: 'home',
+    path: '',
     loadChildren: () =>
-      import('./modules/unicomer/unicomer.module').then(
-        m => m.UnicomerModule
-      ),
+      import('./modules/unicomer/unicomer.module').then(m => m.UnicomerModule),
     canActivate: [AuthGuard],
   },
   {
@@ -25,6 +23,6 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

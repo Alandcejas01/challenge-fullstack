@@ -13,7 +13,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private cookieService: CookieService, private router: Router) {}
+  constructor(
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   canActivate(
     route: ActivatedRouteSnapshot,

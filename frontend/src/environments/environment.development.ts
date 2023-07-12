@@ -1,4 +1,3 @@
 export const environment = {
-  production: false,
-  api: 'http://localhost:8080/api/v1',
+  api: 'https://challenge-fullstack-production.up.railway.app/api/v1',
 };

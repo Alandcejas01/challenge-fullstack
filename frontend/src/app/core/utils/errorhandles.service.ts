@@ -8,7 +8,10 @@ import Swal from 'sweetalert2';
   providedIn: 'root',
 })
 export class ErrorhandlesService {
-  constructor(private cookieService: CookieService, private router: Router) {}
+  constructor(
+    private cookieService: CookieService,
+    private router: Router
+  ) {}
 
   apiError(err: HttpErrorResponse) {
     if (err.status === 403) {

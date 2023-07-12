@@ -28,11 +28,10 @@ export class LoginPageComponent implements OnInit {
     this.formLogin = new UntypedFormGroup({
       dni: new UntypedFormControl('', [
         Validators.required,
-        Validators.minLength(8)
+        Validators.maxLength(16),
       ]),
       password: new UntypedFormControl('', [
         Validators.required,
-        Validators.minLength(8),
         Validators.maxLength(16),
       ]),
     });
@@ -52,7 +51,6 @@ export class LoginPageComponent implements OnInit {
         console.log(err);
         this.error = true;
         this.cookie.delete('token', '/');
-        console.log('en teoria elimine el token');
       },
     });
   }
