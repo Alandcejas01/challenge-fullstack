@@ -10,16 +10,16 @@ export interface TransactionDto {
   transactionStatus: TransactionStatus;
 }
 
-enum TransactionStatus {
-  ACCEPTED,
+export enum TransactionStatus {
+  ACCEPTED = 'ACCEPTED',
 
-  REJECTED,
+  REJECTED = 'REJECTED',
 }
 
-enum TransactionType {
-  DEPOSIT,
+export enum TransactionType {
+  DEPOSIT = 'DEPOSIT',
 
-  TRANSFER,
+  TRANSFER = 'TRANSFER',
 
-  WITHDRAW,
+  WITHDRAW = 'WITHDRAW',
 }

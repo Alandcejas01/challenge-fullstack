@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -8,6 +8,9 @@ import { CookieService } from 'ngx-cookie-service';
 import { FormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { InjectSessionInterceptor } from './core/interceptors/inject-session.interceptor';
+import localeEs from '@angular/common/locales/es';
+import { registerLocaleData } from '@angular/common';
+registerLocaleData(localeEs, 'es');
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +22,10 @@ import { InjectSessionInterceptor } from './core/interceptors/inject-session.int
     BrowserAnimationsModule,
   ],
   providers: [
+    {
+      provide: LOCALE_ID,
+      useValue: 'es',
+    },
     CookieService,
     {
       provide: HTTP_INTERCEPTORS,

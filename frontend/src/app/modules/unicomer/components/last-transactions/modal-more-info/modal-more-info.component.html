@@ -1,0 +1,10 @@
+<h1 mat-dialog-title>Detalle de la operación</h1>
+<div mat-dialog-content>
+  <p>{{transaction.date | date:'full'}}</p>
+  <p>${{transaction.amount | currency: 'ARS' : 'symbol' : '1.2-2'}}</p>
+  <section>
+    <p>{{transaction.type}}</p>
+  </section>
+  <p>Codigo de transferencia: <span class="font-bold">{{transaction.transactionCode}}</span>
+  </p>
+</div>

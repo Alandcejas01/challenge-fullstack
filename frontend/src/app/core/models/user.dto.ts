@@ -2,13 +2,13 @@ import { AccountDto } from './account.dto';
 
 export interface UserDto {
   id: number;
-  fullname: string;
+  fullName: string;
   email: string;
   dni: string;
   account: AccountDto;
 }
 
 export interface UserInfoDto {
-  fullname: string;
+  fullName: string;
   dni: string;
 }
